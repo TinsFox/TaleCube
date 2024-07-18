@@ -2,7 +2,7 @@ import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 export const metadata = {
-  title: 'Next.js AI Chatbot'
+  title: '故事魔方'
 }
 
 export default async function IndexPage() {

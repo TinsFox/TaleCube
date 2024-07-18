@@ -18,11 +18,7 @@ export default function Part2Page() {
       <div className={cn('pt-4 md:pt-10')}>
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
-            <BotMessageCard
-              message="很棒！我们已经将故事进行到一半啦！快来听一听吧～"
-              extra={part2}
-              story
-            />
+            <BotMessageCard message="真是有趣的选择，让我们看看接下来发生了什么呢？" extra={part2} story />
           </div>
           <div className="flex">
             <StoryCard content={part2} />

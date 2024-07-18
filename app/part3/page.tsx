@@ -23,7 +23,7 @@ export default function Part3Page() {
               <BotMessageCard
                 key={'done'}
                 story={false}
-                message={'让我们一起来看看完整的故事吧!'}
+                message={'哇！你的故事看上去棒极了'}
                 onFinish={() => {
                   if (content === contentEnum.a) {
                     setDone(true)

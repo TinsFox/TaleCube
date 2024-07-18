@@ -118,7 +118,7 @@ export default function NamePage() {
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
             <BotMessageCard
-              message={`那么 ${protagonist.role} 请问你的名字是？额稍等稍等……我准备一下，请在“滴”声之后告诉我哈！`}
+              message={`那么 ${protagonist.role} 请问你的名字是？请在“滴”声之后告诉我哈！`}
               onFinish={() => {
                 controls.play()
               }}

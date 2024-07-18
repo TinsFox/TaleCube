@@ -18,7 +18,7 @@ export default function RolePage() {
       <div className={cn('pt-4 md:pt-10')}>
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
-            <BotMessageCard message="之后都发生了什么呢" story={false} />
+            <BotMessageCard message="接下来你会怎么做呢?" story={false} />
           </div>
           <div className="mt-64 grid grid-cols-3 gap-4">
             {options1.map(role => (
@@ -39,13 +39,7 @@ export default function RolePage() {
 }
 
 function ActionCard({ title }: { title: string }) {
-  const {
-    userOptions1,
-    setUserOptions1,
-    protagonist,
-    setProtagonistItem,
-    startPart2
-  } = useChatStore()
+  const { userOptions1, setUserOptions1, startPart2 } = useChatStore()
 
   const [audioUrl, setAudioUrl] = useState('')
   const [audio, state, controls, ref] = useAudio({

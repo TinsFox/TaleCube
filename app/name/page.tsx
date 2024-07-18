@@ -65,7 +65,7 @@ export default function NamePage() {
         const formData = new FormData()
 
         formData.append('audio', blob)
-        fetch('https://story.csgod.cn/api/v1/silicon/asr', {
+        fetch('/api/v1/silicon/asr', {
           method: 'POST',
           body: formData
         })

@@ -7,11 +7,12 @@ interface BotMessageCardProps {
   message: string
   extra?: string
   onFinish?: () => void
+  story: boolean
 }
 
 // eslint-disable-next-line react/display-name
 export const BotMessageCard = memo(
-  ({ message, extra, onFinish }: BotMessageCardProps) => {
+  ({ message, extra, onFinish, story = false }: BotMessageCardProps) => {
     const [audioUrl, setAudioUrl] = useState('')
     const [shouldPlay, setShouldPlay] = useState(false)
     const cardRef = useRef<HTMLDivElement>(null)
@@ -24,11 +25,19 @@ export const BotMessageCard = memo(
     })
     const fetchAudio = useCallback(async () => {
       if (audioUrl) return
-      const context = extra ? `${message}${extra}` : message
-      const res = await storyTTS(context)
-      setAudioUrl(res.data as unknown as string)
-      setShouldPlay(true)
-    }, [audioUrl, extra, message])
+      if (!story) {
+        const context = extra ? `${message}${extra}` : message
+        const res = await storyTTS(message)
+        setAudioUrl(res.data as unknown as string)
+        setShouldPlay(true)
+      } else {
+        if (!extra) return
+        const context = `${message}${extra}`
+        const res = await storyTTS(context)
+        setAudioUrl(res.data as unknown as string)
+        setShouldPlay(true)
+      }
+    }, [audioUrl, extra, message, story])
 
     useEffect(() => {
       fetchAudio()
@@ -60,7 +69,7 @@ export const BotMessageCard = memo(
 
     return (
       <div className="relative flex w-full max-w-xl" ref={cardRef}>
-        <img src="/bot.png" alt="" className="size-12" />
+        <img src="/bot.png" alt="故事魔方" className="size-12" />
         {audio}
         <div>
           <div className="absolute size-full">

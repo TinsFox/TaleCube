@@ -34,7 +34,7 @@ export function Footer() {
                     }
                     router.push('/ending', { scroll: false })
                   }}
-                  className="ml-2 rounded-full bg-primary text-center text-lg font-semibold leading-7 text-white hover:bg-[#68DE7C] hover:text-white"
+                  className="ml-2 rounded-full bg-primary text-center text-lg font-semibold leading-7 text-white hover:bg-[#68DE7C] hover:bg-primary hover:text-white"
                 >
                   <IconClose className="mr-3 size-7" />
                   {pathname === '/part3' ? (done ? 'Ok' : '结束故事') : '返回'}

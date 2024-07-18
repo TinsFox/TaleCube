@@ -188,7 +188,7 @@ export const useChatStore = create<ChatStore>()(
           ]
         }))
         const prompts = get().messages
-        console.log('prompts: ', prompts)
+
         const res = await Chat(prompts)
         if (!res.data.choices.length) {
           set(state => ({ ...state, fetching: true }))

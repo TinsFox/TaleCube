@@ -21,6 +21,7 @@ export default function Part2Page() {
             <BotMessageCard
               message="很棒！我们已经将故事进行到一半啦！快来听一听吧～"
               extra={part2}
+              story
             />
           </div>
           <div className="flex">

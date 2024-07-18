@@ -122,6 +122,7 @@ export default function NamePage() {
               onFinish={() => {
                 controls.play()
               }}
+              story={false}
             />
           </div>
           <div className="flex items-center justify-center">

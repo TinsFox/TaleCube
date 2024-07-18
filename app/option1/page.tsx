@@ -11,16 +11,14 @@ import { useRouter } from 'next/navigation'
 import { IconCheck, IconIdea, IconRefresh } from '@/components/ui/icons'
 
 export default function RolePage() {
-  const { options1, startPart2, refresh } = useChatStore()
-
-  const router = useRouter()
+  const { options1, refresh } = useChatStore()
 
   return (
     <div className="slate/900 body group w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]">
       <div className={cn('pt-4 md:pt-10')}>
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
-            <BotMessageCard message="之后都发生了什么呢" />
+            <BotMessageCard message="之后都发生了什么呢" story={false} />
           </div>
           <div className="mt-64 grid grid-cols-3 gap-4">
             {options1.map(role => (

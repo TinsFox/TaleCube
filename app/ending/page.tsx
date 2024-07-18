@@ -23,7 +23,7 @@ export default function EndingPage() {
       <div className={cn('pt-4 md:pt-10')}>
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
-            <BotMessageCard message={'让我们一起来看看完整的故事吧！'} />
+            <BotMessageCard message={'这就是你创作的故事！'} story={false} />
           </div>
           <Carousel
             className="mt-5 w-full"

@@ -11,7 +11,7 @@ import { IconCheck, IconIdea } from '@/components/ui/icons'
 
 export default function RolePage() {
   const { options2, startPart3, protagonist } = useChatStore()
-  const router = useRouter()
+
   return (
     <div className="slate/900 body group w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]">
       <div className={cn('pt-4 md:pt-10')}>
@@ -19,6 +19,7 @@ export default function RolePage() {
           <div className="group relative flex w-fit items-start md:-ml-12">
             <BotMessageCard
               message={`好极了！越来越期待 ${protagonist.name}之后发生的故事啦！快告诉我，之后都发生什么事情了？`}
+              story={false}
             />
           </div>
           <div className="mt-10 grid grid-cols-3 gap-4">
@@ -81,7 +82,7 @@ function ActionCard({ title }: { title: string }) {
       >
         <Button
           className={cn(
-            'inline-flex h-[240px] w-full items-center bg-primary px-4 text-center text-white',
+            'inline-flex h-[240px] w-full items-center text-wrap bg-primary px-4 text-center text-white',
             {
               'bg-[#68DE7C] hover:bg-[#68DE7C]': userOptions2 === title
             }

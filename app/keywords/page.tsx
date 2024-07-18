@@ -31,6 +31,7 @@ export default function RolePage() {
           <div className="group relative flex w-fit items-start md:-ml-12">
             <BotMessageCard
               message={`哇哦，${protagonist.name}，好特殊的名字！那么 ${protagonist.name}，请问你的世界里还有些什么其他东西呢？`}
+              story={false}
             />
           </div>
           <div className="mt-20 grid grid-cols-5 gap-4">

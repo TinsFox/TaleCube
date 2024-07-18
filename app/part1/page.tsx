@@ -4,14 +4,12 @@ import { ConfirmButton } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 import { useChatStore } from '@/store/chat'
-import { useState } from 'react'
-import { useAudio } from 'react-use'
 import { useRouter } from 'next/navigation'
 import { IconCheck } from '@/components/ui/icons'
 import { StoryCard } from '@/components/StoryCard'
 
 export default function RolePage() {
-  const { startPart1, part1, startOption1 } = useChatStore()
+  const { part1, startOption1 } = useChatStore()
 
   const router = useRouter()
 
@@ -23,6 +21,7 @@ export default function RolePage() {
             <BotMessageCard
               message="棒极了！我们已经将故事的开头写完啦！快来听一听吧～"
               extra={part1?.content}
+              story
             />
           </div>
           <div className="flex">

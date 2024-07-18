@@ -20,7 +20,7 @@ const remotePatterns = OSSPaths.split(',').map((hostname) => {
 
 /** @type {import('next').NextConfig} */
 const nextConfig ={
-  // output: "standalone",
+  output: "standalone",
   reactStrictMode:false,
   images: {
     remotePatterns

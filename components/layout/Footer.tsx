@@ -1,9 +1,10 @@
 'use client'
-import { IconBack, IconClose } from '@/components/ui/icons'
+import { IconBack, IconCheck, IconClose } from '@/components/ui/icons'
 import { usePathname, useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { cn } from '@/lib/utils'
 import { useChatStore } from '@/store/chat'
+import { toast } from 'sonner'
 
 export function Footer() {
   const { done, setDone } = useChatStore()
@@ -26,19 +27,51 @@ export function Footer() {
                     router.back()
                   }}
                 />
-                <Button
-                  onClick={() => {
-                    setDone(false)
-                    if (pathname !== '/part3') {
-                      return
-                    }
-                    router.push('/ending', { scroll: false })
-                  }}
-                  className="ml-2 rounded-full bg-primary text-center text-lg font-semibold leading-7 text-white hover:bg-[#68DE7C] hover:bg-primary hover:text-white"
-                >
-                  <IconClose className="mr-3 size-7" />
-                  {pathname === '/part3' ? (done ? 'Ok' : '结束故事') : '返回'}
-                </Button>
+
+                {pathname === '/ending' ? (
+                  <Button
+                    className={cn(
+                      'ml-2 rounded-full bg-primary text-center text-lg font-semibold leading-7 text-white hover:bg-[#68DE7C] hover:bg-primary hover:text-white',
+                      {
+                        'bg-[#68DE7C] hover:bg-[#68DE7C]': true
+                      }
+                    )}
+                    onClick={() => {
+                      toast.success('保存成功!')
+                    }}
+                  >
+                    <IconCheck className="mr-3 size-7" />
+                    保存
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      setDone(false)
+                      if (pathname !== '/part3') {
+                        return
+                      }
+                      router.push('/ending', { scroll: false })
+                    }}
+                    className={cn(
+                      'ml-2 rounded-full bg-primary text-center text-lg font-semibold leading-7 text-white hover:bg-[#68DE7C] hover:bg-primary hover:text-white',
+                      {
+                        'bg-[#68DE7C] hover:bg-[#68DE7C]': done
+                      }
+                    )}
+                  >
+                    {done ? (
+                      <IconCheck className="mr-3 size-7" />
+                    ) : (
+                      <IconClose className="mr-3 size-7" />
+                    )}
+
+                    {pathname === '/part3'
+                      ? done
+                        ? 'Ok'
+                        : '结束故事'
+                      : '返回'}
+                  </Button>
+                )}
               </div>
             </div>
           </div>

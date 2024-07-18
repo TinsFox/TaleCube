@@ -19,7 +19,7 @@ export default function RolePage() {
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
             <BotMessageCard
-              message="让我们来开始这段故事吧!"
+              message="好嘞，让我们进入你的故事吧！"
               extra={part1?.content}
               story
             />
@@ -36,7 +36,7 @@ export default function RolePage() {
               }}
             >
               <IconCheck className="mr-3 size-7" />
-              可以啦
+              继续冒险
             </ConfirmButton>
           </div>
         </div>

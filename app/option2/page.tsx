@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import { IconCheck, IconIdea } from '@/components/ui/icons'
 
 export default function RolePage() {
-  const { options2, startPart3, protagonist } = useChatStore()
+  const { options2 } = useChatStore()
 
   return (
     <div className="slate/900 body group w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]">
@@ -18,7 +18,7 @@ export default function RolePage() {
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
             <BotMessageCard
-              message={`好极了！越来越期待 ${protagonist.name}之后发生的故事啦！快告诉我，之后都发生什么事情了？`}
+              message={`然后，你的故事是什么样的呢？`}
               story={false}
             />
           </div>
@@ -101,7 +101,7 @@ function ActionCard({ title }: { title: string }) {
           }}
         >
           <IconCheck className="mr-2 size-7"></IconCheck>
-          就它啦
+          就是这样
         </ConfirmButton>
         {audio}
       </div>

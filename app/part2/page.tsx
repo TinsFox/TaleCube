@@ -18,7 +18,11 @@ export default function Part2Page() {
       <div className={cn('pt-4 md:pt-10')}>
         <div className="relative mx-auto max-w-2xl px-4">
           <div className="group relative flex w-fit items-start md:-ml-12">
-            <BotMessageCard message="真是有趣的选择，让我们看看接下来发生了什么呢？" extra={part2} story />
+            <BotMessageCard
+              message="原来如此，你的选择让这个故事更有趣了"
+              extra={part2}
+              story
+            />
           </div>
           <div className="flex">
             <StoryCard content={part2} />
@@ -33,7 +37,7 @@ export default function Part2Page() {
             }}
           >
             <IconCheck className="mr-3 size-7" />
-            没问题
+            继续冒险
           </ConfirmButton>
         </div>
       </div>

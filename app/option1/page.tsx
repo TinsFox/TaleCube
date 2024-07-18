@@ -100,7 +100,7 @@ function ActionCard({ title }: { title: string }) {
           }}
         >
           <IconCheck className="mr-2 size-7"></IconCheck>
-          就它啦
+          就是这样
         </ConfirmButton>
         {audio}
       </div>

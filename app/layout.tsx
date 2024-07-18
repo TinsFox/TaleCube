@@ -15,7 +15,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={'antialiased'}>
         <RQProviders>
-          <Toaster position="top-center" />
+          <Toaster position="top-center" richColors />
           <Providers
             attribute="class"
             defaultTheme="light"

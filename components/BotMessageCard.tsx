@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 
 import { useAudio } from 'react-use'
 import { storyTTS } from '@/service/chat'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 interface BotMessageCardProps {
   message: string
@@ -69,7 +70,10 @@ export const BotMessageCard = memo(
 
     return (
       <div className="relative flex w-full max-w-xl" ref={cardRef}>
-        <img src="/bot.png" alt="故事魔方" className="size-12" />
+        <Avatar>
+          <AvatarImage src="/bot.png" alt="故事魔方" />
+          <AvatarFallback>TC</AvatarFallback>
+        </Avatar>
         {audio}
         <div>
           <div className="absolute size-full">

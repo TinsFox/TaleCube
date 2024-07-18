@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { useAudio } from 'react-use'
 import { useRouter } from 'next/navigation'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function RolePage() {
   const [roles, setRoles] = useState<RoleData[]>([])
@@ -105,7 +106,11 @@ function RoleCard({ title, img }: { title: string; img: string }) {
           }, 10)
         }}
       >
-        <Image src={img} alt={title} width={240} height={200} />
+        <Avatar className="h-52 w-[120px] rounded-none">
+          <AvatarImage src={img} alt={title} className="object-cover" />
+          <AvatarFallback>TC</AvatarFallback>
+        </Avatar>
+        {/* <Image src={img} alt={title} width={240} height={200} /> */}
         {/* {img && <Image src={img} alt={title} width={240} height={200} />} */}
         <p
           className={cn(

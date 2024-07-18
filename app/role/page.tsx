@@ -10,6 +10,7 @@ import { Suspense, useEffect, useRef, useState } from 'react'
 import { useAudio } from 'react-use'
 import { useRouter } from 'next/navigation'
 import { IconCheck, IconIdea, IconRefresh } from '@/components/ui/icons'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function RolePage() {
   const [roles, setRoles] = useState<RoleData[]>([])
@@ -101,13 +102,21 @@ function RoleCard({ title, img }: { title: string; img: string }) {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Avatar className="h-72 w-60 rounded-none object-cover">
+          <AvatarImage
+            src={img}
+            alt={title}
+            className="h-72 w-60 rounded-none object-cover"
+          />
+          <AvatarFallback>{title}</AvatarFallback>
+        </Avatar>
+        {/* <img
           src={img}
           alt={title}
           width={240}
           height={280}
           className="h-72 w-60 object-cover"
-        />
+        /> */}
 
         <p
           className={cn(

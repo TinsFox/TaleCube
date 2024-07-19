@@ -14,6 +14,7 @@ import { SoundWave } from '@/components/SoundWave'
 import { useAudio } from 'react-use'
 import { IconCheck, IconRefresh, IconStop } from '@/components/ui/icons'
 import { useRouter } from 'next/navigation'
+import { Input } from '@/components/ui/input'
 
 let rec: any = null
 const recOpen = function (success: any) {
@@ -126,7 +127,33 @@ export default function NamePage() {
             />
           </div>
           <div className="flex items-center justify-center">
-            <div className="flex flex-col items-center justify-center space-y-2">
+            <div
+              className={cn(
+                'flex flex-col items-center justify-center space-y-2',
+                {
+                  // 'mt-20': !recording && !name,
+                  'mt-52': recording
+                }
+              )}
+            >
+              <div className="flex items-center justify-center space-x-4">
+                <Input
+                  placeholder="手动输入名字"
+                  onChange={e => {
+                    setName(e.target.value)
+                  }}
+                />
+                <Button
+                  onClick={() => {
+                    controls.pause()
+                    toggleRecording()
+                    setProtagonistItem('name', name)
+                    router.push('/keywords', { scroll: false })
+                  }}
+                >
+                  下一步
+                </Button>
+              </div>
               {!recording && !name && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -186,85 +213,8 @@ export default function NamePage() {
               )}
             </div>
           </div>
-          {/* {!recording && (
-            <div className="flex items-center justify-center">
-              <div className="flex flex-col items-center justify-center space-y-2">
-                {name === '' && (
-                  <div className={cn('relative overflow-hidden rounded-md')}>
-                    <div
-                      className={cn(
-                        'inline-flex h-72 w-60 items-center justify-center text-nowrap rounded-md text-center text-primary-foreground'
-                      )}
-                    >
-                      {hasError && <>没有听见你说话，再来一次吧！</>}
-                    </div>
-                  </div>
-                )}
-
-                {name ? (
-                  <>
-                    <div className={cn('relative overflow-hidden rounded-md')}>
-                      <div
-                        className={cn(
-                          'inline-flex h-72 w-60 items-center justify-center text-nowrap rounded-md bg-primary text-center text-primary-foreground shadow'
-                        )}
-                      >
-                        {name}
-                      </div>
-                    </div>
-                    <div>
-                      <ConfirmButton
-                        onClick={() => {
-                          controls.pause()
-                          toggleRecording()
-                          setProtagonistItem('name', name)
-                          router.push('/keywords', { scroll: false })
-                        }}
-                      >
-                        <IconCheck className="mr-3 size-7" />
-                        就它啦
-                      </ConfirmButton>
-                      <Button
-                        onClick={() => {
-                          controls.play()
-                        }}
-                        className="bg-transparent hover:bg-transparent"
-                        variant={'link'}
-                      >
-                        <IconRefresh className="size-7" />
-                      </Button>
-                    </div>
-                  </>
-                ) : (
-                  <Button
-                    onClick={() => {
-                      controls.play()
-                    }}
-                    className="bg-transparent hover:bg-transparent"
-                    variant={'link'}
-                  >
-                    <IconRefresh className="size-7" />
-                  </Button>
-                )}
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
-      {/* <div className={cn('mb-5 flex flex-col items-center justify-center')}>
-        {recording && <div className="h-72"></div>}
-        {recording && (
-          <IdeaButton
-            className="w-32 hover:bg-current"
-            onClick={toggleRecording}
-          >
-            <IconStop className="size-7" />
-            <div className="w-2"></div>
-            结束录音
-          </IdeaButton>
-        )}
-        <SoundWave isAnimating={recording} />
-      </div> */}
       {audio}
     </div>
   )

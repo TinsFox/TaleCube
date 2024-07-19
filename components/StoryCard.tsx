@@ -17,7 +17,9 @@ export function StoryCard({ content }: { content: string }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <Avatar className="h-52 w-[240px] rounded-none">
           <AvatarImage src={img} alt={content} className="object-cover" />
-          <AvatarFallback className="rounded-none">加载中..</AvatarFallback>
+          <AvatarFallback className="rounded-none">
+            内容极速生成中...
+          </AvatarFallback>
         </Avatar>
         {/* <img src={img} alt={content} width={240} height={280} /> */}
         <p className="text-sm leading-6">{content}</p>

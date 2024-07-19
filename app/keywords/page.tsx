@@ -108,7 +108,7 @@ function RoleCard({ title, img }: { title: string; img: string }) {
       >
         <Avatar className="h-52 w-[120px] rounded-none">
           <AvatarImage src={img} alt={title} className="object-cover" />
-          <AvatarFallback>TC</AvatarFallback>
+          <AvatarFallback>{title}</AvatarFallback>
         </Avatar>
         {/* <Image src={img} alt={title} width={240} height={200} /> */}
         {/* {img && <Image src={img} alt={title} width={240} height={200} />} */}

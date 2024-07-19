@@ -108,7 +108,7 @@ function RoleCard({ title, img }: { title: string; img: string }) {
             alt={title}
             className="h-72 w-60 rounded-none object-cover"
           />
-          <AvatarFallback>{title}</AvatarFallback>
+          <AvatarFallback className="rounded-none">{title}</AvatarFallback>
         </Avatar>
         {/* <img
           src={img}

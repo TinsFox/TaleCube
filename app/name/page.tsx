@@ -136,23 +136,28 @@ export default function NamePage() {
                 }
               )}
             >
-              <div className="flex items-center justify-center space-x-4">
-                <Input
-                  placeholder="手动输入名字"
-                  onChange={e => {
-                    setName(e.target.value)
-                  }}
-                />
-                <Button
-                  onClick={() => {
-                    controls.pause()
-                    toggleRecording()
-                    setProtagonistItem('name', name)
-                    router.push('/keywords', { scroll: false })
-                  }}
-                >
-                  下一步
-                </Button>
+              <div className="flex flex-col items-center justify-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
+                  <Input
+                    placeholder="手动输入名字"
+                    onChange={e => {
+                      setName(e.target.value)
+                    }}
+                  />
+                  <Button
+                    onClick={() => {
+                      controls.pause()
+                      toggleRecording()
+                      setProtagonistItem('name', name)
+                      router.push('/keywords', { scroll: false })
+                    }}
+                  >
+                    下一步
+                  </Button>
+                </div>
+                <div className="text-foreground">
+                  本来是语音输入的,现场太吵啦,输入框替代一下~
+                </div>
               </div>
               {!recording && !name && (
                 // eslint-disable-next-line @next/next/no-img-element

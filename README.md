@@ -6,18 +6,9 @@
 
 <br/>
 
-## Running locally
+## Documents
 
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file 
-
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Your app template should now be running on [localhost:3000](http://localhost:3000/).
+1. v1 https://kseojeq6cx.feishu.cn/docs/doccnulCpaH4cid9GaEUCjCQOEe
+2. v2 https://lag410zsdtc.feishu.cn/docx/MSrMdncBbo7RYixnfprckrIAnVg 
 
 
